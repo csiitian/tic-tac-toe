@@ -1,38 +1,70 @@
 .App {
+  background-color: #f0f0f0; /* Light gray background */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.StartText {
+  border: 2px solid #333; /* Dark gray border */
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff; /* White background */
+  color: #333; /* Dark gray text */
+  font-weight: bold;
+}
+
+.GameOverText {
+  font-size: 48px;
+  font-weight: bold;
   text-align: center;
+  color: #e74c3c; /* Red color for game over text */
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.BoardContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 2px solid #333; /* Dark gray border for the board */
+  border-radius: 10px;
+  background-color: #fff; /* White background for the board */
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.BoardRowContainer {
+  width: 100%;
+  height: 100px; /* Adjust the height as needed */
+  background-color: #f0f0f0; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #333; /* Dark gray border between rows */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.BoxContainer {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-color: #3498db; /* Blue background color for boxes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #2980b9; /* Dark blue border for boxes */
+  color: #fff; /* White text color */
+  font-size: 36px; /* Font size */
+  font-weight: bold; /* Font weight */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.BoxText {
+  color: #fff; /* Text color */
+  font-size: 36px; /* Font size */
+  font-weight: bold; /* Font weight */
+  text-align: center; /* Center text horizontally */
+  vertical-align: middle; /* Center text vertically */
 }
