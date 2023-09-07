@@ -22,6 +22,8 @@ function App() {
   };
 
   const [boardState, setBoardState] = useState(Array(3).fill(Array(3).fill('')));
+  // to change background for matched row, col or diagonal
+  const [boardWinnerState, setBoardWinnerState] = useState(Array(3).fill(Array(3).fill(false)));
   const [player, setPlayer] = useState(null);
   const [gameState, setGameState] = useState(GAME_STATE.NOT_STARTED);
   const [finalState, setFinalState] = useState(null);
@@ -55,19 +57,39 @@ function App() {
   const checkWinner = (board) => {
     for (let i = 0; i < 3; i++) {
       if (board[i][0] && board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+        const newBoardWinnerState = boardWinnerState.map((row) => [...row]);
+        newBoardWinnerState[i][0] = true;
+        newBoardWinnerState[i][1] = true;
+        newBoardWinnerState[i][2] = true;
+        setBoardWinnerState(newBoardWinnerState);
         return board[i][0];
       }
 
       if (board[0][i] && board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
+        const newBoardWinnerState = boardWinnerState.map((row) => [...row]);
+        newBoardWinnerState[0][i] = true;
+        newBoardWinnerState[1][i] = true;
+        newBoardWinnerState[2][i] = true;
+        setBoardWinnerState(newBoardWinnerState);
         return board[0][i];
       }
     }
 
     if (board[0][0] && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+      const newBoardWinnerState = boardWinnerState.map((row) => [...row]);
+      newBoardWinnerState[0][0] = true;
+      newBoardWinnerState[1][1] = true;
+      newBoardWinnerState[2][2] = true;
+      setBoardWinnerState(newBoardWinnerState);
       return board[0][0];
     }
 
     if (board[0][2] && board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+      const newBoardWinnerState = boardWinnerState.map((row) => [...row]);
+      newBoardWinnerState[0][2] = true;
+      newBoardWinnerState[1][1] = true;
+      newBoardWinnerState[2][0] = true;
+      setBoardWinnerState(newBoardWinnerState);
       return board[0][2];
     }
 
@@ -76,6 +98,7 @@ function App() {
 
   const handleGameState = () => {
     setBoardState(Array(3).fill(Array(3).fill('')));
+    setBoardWinnerState(Array(3).fill(Array(3).fill(false)));
     if (gameState === GAME_STATE.NOT_STARTED || gameState === GAME_STATE.ENDED) {
       setGameState(GAME_STATE.STARTED);
       setPlayer(PLAYER.O);
@@ -90,7 +113,7 @@ function App() {
     <div className="App">
       <h1>Tic-Tac-Toe Game</h1>
       <p>Click a box to make your move and try to win the game!</p>
-      <Board boardState={boardState} updateBoardState={updateBoardState} currentPlayer={player} />
+      <Board boardState={boardState} boardWinnerState={boardWinnerState} updateBoardState={updateBoardState} currentPlayer={player} />
       <div className="GameOverText">
         {finalState === FINAL_STATE.X_WON ? 'Player X Won !!!' : null}
         {finalState === FINAL_STATE.O_WON ? 'Player O Won !!!' : null}

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-export default function Box({ state, row, col, updateBoardState }) {
+export default function Box({ state, row, col, winnerBox, updateBoardState }) {
   const handleClick = () => {
     // Check if the box is empty and the game is still ongoing
     if (state === '') {
@@ -11,7 +11,7 @@ export default function Box({ state, row, col, updateBoardState }) {
   };
 
   return (
-    <div className="BoxContainer" onClick={handleClick}>
+    <div className={ winnerBox ? "BoxWinnerContainer" : "BoxContainer" } onClick={handleClick}>
       <p className="BoxText">{state}</p>
     </div>
   );

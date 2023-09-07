@@ -3,7 +3,7 @@ import '../App.css';
 import Box from './Box';
 
 export default function Board(props) {
-  const { boardState, updateBoardState } = props;
+  const { boardState, updateBoardState, boardWinnerState } = props;
 
   return (
     <div className="BoardContainer">
@@ -16,6 +16,7 @@ export default function Board(props) {
               row={rowIndex}
               col={colIndex}
               updateBoardState={updateBoardState}
+              winnerBox={boardWinnerState[rowIndex][colIndex]}
             />
           ))}
         </div>
