@@ -1,28 +1,27 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Board from './components/Board';
 
+const GAME_STATE = {
+  NOT_STARTED: 'GAME_NOT_STARTED',
+  STARTED: 'GAME_STARTED',
+  ENDED: 'GAME_ENDED',
+};
+
+const PLAYER = {
+  X: 'PLAYER_X',
+  O: 'PLAYER_O',
+};
+
+const FINAL_STATE = {
+  X_WON: 'PLAYER_X_WON',
+  O_WON: 'PLAYER_O_WON',
+  DRAW: 'MATCH_DRAW',
+  ENDED: 'MATCH_ENDED',
+};
+
 function App() {
-  const GAME_STATE = {
-    NOT_STARTED: 'GAME_NOT_STARTED',
-    STARTED: 'GAME_STARTED',
-    ENDED: 'GAME_ENDED',
-  };
-
-  const PLAYER = {
-    X: 'PLAYER_X',
-    O: 'PLAYER_O',
-  };
-
-  const FINAL_STATE = {
-    X_WON: 'PLAYER_X_WON',
-    O_WON: 'PLAYER_O_WON',
-    DRAW: 'MATCH_DRAW',
-    ENDED: 'MATCH_ENDED',
-  };
-
   const [boardState, setBoardState] = useState(Array(3).fill(Array(3).fill('')));
-  // to change background for matched row, col or diagonal
   const [boardWinnerState, setBoardWinnerState] = useState(Array(3).fill(Array(3).fill(false)));
   const [player, setPlayer] = useState(null);
   const [gameState, setGameState] = useState(GAME_STATE.NOT_STARTED);
@@ -30,7 +29,7 @@ function App() {
 
   const updateBoardState = (row, col) => {
     if (gameState !== GAME_STATE.STARTED) {
-      alert("Please Press  `Start The Game`");
+      alert("Please Press 'Start The Game'");
       return;
     }
 
@@ -115,10 +114,10 @@ function App() {
       <p>Click a box to make your move and try to win the game!</p>
       <Board boardState={boardState} boardWinnerState={boardWinnerState} updateBoardState={updateBoardState} currentPlayer={player} />
       <div className="GameOverText">
-        {finalState === FINAL_STATE.X_WON ? 'Player X Won !!!' : null}
-        {finalState === FINAL_STATE.O_WON ? 'Player O Won !!!' : null}
-        {finalState === FINAL_STATE.DRAW ? 'Match Draw !!!' : null}
-        {finalState === FINAL_STATE.ENDED ? 'Match Ended !!!' : null}
+        {finalState === FINAL_STATE.X_WON && 'Player X Won !!!'}
+        {finalState === FINAL_STATE.O_WON && 'Player O Won !!!'}
+        {finalState === FINAL_STATE.DRAW && 'Match Draw !!!'}
+        {finalState === FINAL_STATE.ENDED && 'Match Ended !!!'}
       </div>
       <div className="StartText" onClick={handleGameState}>
         {gameState === GAME_STATE.NOT_STARTED ? 'Start The Game' : gameState === GAME_STATE.STARTED ? 'End The Game' : 'Restart The Game'}
