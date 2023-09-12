@@ -114,6 +114,10 @@ function OfflineBoard() {
     <div className="App">
       <h1 className="title">Tic-Tac-Toe Game</h1>
       <p className="description">Click a box to make your move and try to win the game!</p>
+      {
+        gameState === GAME_STATE.STARTED && <p className="description">
+          {(player === PLAYER.O ? "Player O's Turn" : "Player X's Turn")}</p>
+      }
       <Board boardState={boardState} boardWinnerState={boardWinnerState} updateBoardState={updateBoardState} currentPlayer={player} />
       <div className="GameOverText">
         {finalState === FINAL_STATE.X_WON ? 'Player X Won !!!' : null}
