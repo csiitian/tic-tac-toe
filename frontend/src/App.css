@@ -1,5 +1,5 @@
 .App {
-  background-color: #f0f0f0; /* Light gray background */
+  background-color: #2196F3; /* Material UI Primary Blue */
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,21 +8,11 @@
   align-items: center;
 }
 
-.StartText {
-  border: 2px solid #333; /* Dark gray border */
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #fff; /* White background */
-  color: #333; /* Dark gray text */
-  font-weight: bold;
-}
-
 .GameOverText {
-  font-size: 48px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
-  color: #e74c3c; /* Red color for game over text */
+  color: #F44336; /* Material UI Primary Red */
   margin: 20px;
 }
 
@@ -31,44 +21,44 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid #333; /* Dark gray border for the board */
+  border: 2px solid #333;
   border-radius: 10px;
-  background-color: #fff; /* White background for the board */
+  background-color: #FFFFFF; /* Material UI Background White */
   padding: 20px;
 }
 
 .BoardRowContainer {
   width: 100%;
-  height: 100px; /* Adjust the height as needed */
-  background-color: #f0f0f0; /* Light gray background */
+  height: 100px;
+  background-color: #F5F5F5; /* Material UI Grey Background */
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid #333; /* Dark gray border between rows */
+  border-bottom: 2px solid #333;
 }
 
 .BoxContainer, .BoxWinnerContainer {
-  width: 100px; /* Adjust the width as needed */
-  height: 100px; /* Adjust the height as needed */
-  background-color: #3498db; /* Blue background color for boxes */
+  width: 100px;
+  height: 100px;
+  background-color: #2196F3; /* Material UI Primary Blue */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #2980b9; /* Dark blue border for boxes */
-  color: #fff; /* White text color */
-  font-size: 36px; /* Font size */
-  font-weight: bold; /* Font weight */
-  cursor: pointer; /* Show pointer cursor on hover */
+  border: 2px solid #1976D2; /* Material UI Darker Blue Border */
+  color: #FFFFFF; /* Material UI Text White */
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .BoxWinnerContainer {
-  background-color: #e74c3c;
+  background-color: #D32F2F; /* Material UI Darker Red */
 }
 
 .BoxText {
-  color: #fff; /* Text color */
-  font-size: 36px; /* Font size */
-  font-weight: bold; /* Font weight */
-  text-align: center; /* Center text horizontally */
-  vertical-align: middle; /* Center text vertically */
+  color: #FFFFFF;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
 }
