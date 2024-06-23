@@ -36,6 +36,7 @@ const processWaitingQueue = async (io) => {
     opponent: user2,
     matchId: matchId 
   });
+
   io.to(user2).emit('match', {
     turn: user1,
     opponent: user1,
