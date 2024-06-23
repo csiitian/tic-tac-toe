@@ -2,7 +2,12 @@ const { Server } = require("socket.io");
 const { addToWaitingQueue, processWaitingQueue } = require("../services/queueService"); // Add processWaitingQueue function
 
 module.exports = (server) => {
-  const io = new Server(server, { cors: { origin: "*" } });
+  const io = new Server(server, { cors:
+        {
+          origin: "https://localhost:3000",
+          methods: ["GET", "POST"]
+        }
+  });
 
   io.on('connection', (socket) => {
     socket.on('disconnect', () => {
