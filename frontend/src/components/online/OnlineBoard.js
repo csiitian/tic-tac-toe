@@ -5,8 +5,7 @@ import '../../App.css';
 import Board from '../Board';
 
 function OnlineBoard() {
-  const backendUrl = process.env.REACT_APP_TIC_TAC_TOE_BACKEND_URL || 'https://tic-tac-toe-backend-alpha.vercel.app';
-  console.log(backendUrl);
+  const backendUrl = process.env.REACT_APP_TIC_TAC_TOE_BACKEND_URL || 'http://localhost:3000';
 
   const GAME_STATE = {
     NOT_STARTED: 'GAME_NOT_STARTED',
