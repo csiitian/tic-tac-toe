@@ -9,7 +9,6 @@ module.exports = (server) => {
           origin: allowedOrigins,
           methods: ["GET", "POST"],
           allowedHeaders: ["Access-Control-Allow-Origin", "Content-Type"],
-          credentials: true,
         }
   });
 
