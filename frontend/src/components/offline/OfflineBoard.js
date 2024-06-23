@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../../App.css';
 import Board from '../Board';
+import styled from "styled-components";
+import Header from "../common/Header";
 
 function OfflineBoard() {
 
@@ -111,7 +113,8 @@ function OfflineBoard() {
   };
 
   return (
-    <div className="App">
+    <OfflineBoardContainer>
+      <Header />
       <h1 className="title">Tic-Tac-Toe Game</h1>
       <p className="description">Click a box to make your move and try to win the game!</p>
       {
@@ -128,8 +131,19 @@ function OfflineBoard() {
       <button className="start-button" onClick={handleGameState}>
         {gameState === GAME_STATE.NOT_STARTED ? 'Start The Game' : gameState === GAME_STATE.STARTED ? 'End The Game' : 'Restart The Game'}
       </button>
-    </div>
+    </OfflineBoardContainer>
   );
 }
 
 export default OfflineBoard;
+
+const OfflineBoardContainer = styled.div`
+  background: linear-gradient(135deg, rgba(70,130,180,0.8) 0%, rgba(255,255,255,0) 100%),
+  url('https://source.unsplash.com/random') no-repeat center center/cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`

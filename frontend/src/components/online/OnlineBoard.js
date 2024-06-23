@@ -5,6 +5,8 @@ import '../../App.css';
 import Board from '../Board';
 
 function OnlineBoard() {
+  const backendUrl = process.env.REACT_APP_TIC_TAC_TOE_BACKEND_URL || 'https://tic-tac-toe-backend-alpha.vercel.app';
+  console.log(backendUrl);
 
   const GAME_STATE = {
     NOT_STARTED: 'GAME_NOT_STARTED',
@@ -171,10 +173,10 @@ function OnlineBoard() {
   }
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:3000', {
+    socketRef.current = io(backendUrl, {
       reconnection: true,
       reconnectionDelay: 1000,
-      reconnectionAttempts: Infinity,
+      reconnectionAttempts: Infinity
     });
 
     socketRef.current.on('connect', () => {
