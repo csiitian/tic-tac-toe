@@ -1,12 +1,15 @@
 const { Server } = require("socket.io");
 const { addToWaitingQueue, processWaitingQueue } = require("../services/queueService"); // Add processWaitingQueue function
 
+const allowedOrigins = ['http://localhost:3000', 'https://tic-tac-toe-neon-mu.vercel.app'];
+
 module.exports = (server) => {
   const io = new Server(server, { cors:
         {
-          origin: "*",
+          origin: allowedOrigins,
           methods: ["GET", "POST"],
-          allowedHeaders: ["Access-Control-Allow-Origin"],
+          allowedHeaders: ["Access-Control-Allow-Origin", "Content-Type"],
+          credentials: true,
         }
   });
 
