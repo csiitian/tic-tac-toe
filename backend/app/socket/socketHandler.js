@@ -4,8 +4,9 @@ const { addToWaitingQueue, processWaitingQueue } = require("../services/queueSer
 module.exports = (server) => {
   const io = new Server(server, { cors:
         {
-          origin: "https://localhost:3000",
-          methods: ["GET", "POST"]
+          origin: "*",
+          methods: ["GET", "POST"],
+          allowedHeaders: ["Access-Control-Allow-Origin"],
         }
   });
 
